@@ -34,7 +34,7 @@ Companies hide the sketchiest stuff behind walls of legalese. You're supposed to
 - **Backend** — Python FastAPI
 - **AI** — Nvidia NIM API (meta/llama-3.1-8b-instruct)
 - **Document parsing** — PyPDF2, python‑docx
-- **Deployment** — Docker image, runs on Hugging Face Spaces or Render (free tiers)
+- **Deployment** — Docker image, runs on Hugging Face Spaces
 
 ---
 
