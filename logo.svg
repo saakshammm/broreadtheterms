@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Document shape -->
+  <rect x="15" y="10" width="70" height="80" rx="6" fill="#111" stroke="#ededed" stroke-width="3" />
+  <!-- Folded corner -->
+  <path d="M65 10 L85 30 L65 30 Z" fill="#ff4d4d" stroke="#ff4d4d" stroke-width="2" stroke-linejoin="round" />
+  <!-- Warning exclamation mark -->
+  <text x="50" y="65" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="38" fill="#ff4d4d">!</text>
+</svg>

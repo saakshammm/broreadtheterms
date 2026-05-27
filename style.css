@@ -1,0 +1,291 @@
+/* ---------- reset & variables ---------- */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+    --black: #080808;
+    --dark: #111;
+    --mid: #1c1c1c;
+    --border: #2a2a2a;
+    --gray: #999;
+    --white: #ededed;
+    --accent: #ff4d4d;
+    --font: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --radius: 12px;
+}
+
+html {
+    font-size: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+.wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 2rem;
+}
+
+/* ---------- header ---------- */
+.site-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.logo {
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--white);
+}
+
+.cursor {
+    color: var(--accent);
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity:0; } }
+
+.tagline {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 0.2rem;
+}
+
+.subline {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-top: 0.3rem;
+}
+
+/* ---------- input panel ---------- */
+.input-panel {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.8rem;
+    margin-bottom: 2.5rem;
+}
+
+.input-label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.2px;
+}
+
+textarea {
+    width: 100%;
+    background: var(--black);
+    color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    font-family: var(--font);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+textarea:focus {
+    border-color: var(--accent);
+}
+
+.file-row {
+    margin-top: 1rem;
+}
+
+.drop-zone {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 0.8rem 1rem;
+    transition: border-color 0.2s, background 0.2s;
+}
+.drop-zone:hover, .drop-zone.dragover {
+    border-color: var(--accent);
+    background: rgba(255,77,77,0.05);
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-family: var(--font);
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--accent);
+}
+.text-btn:hover {
+    color: #fff;
+    text-decoration-color: #fff;
+}
+
+.file-name {
+    font-size: 0.85rem;
+    color: var(--accent);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+}
+
+.primary-btn {
+    width: 100%;
+    margin-top: 1.2rem;
+    padding: 0.85rem;
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    border-radius: var(--radius);
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.primary-btn:hover:not(:disabled) {
+    background: var(--accent);
+    color: var(--black);
+    border-color: var(--accent);
+}
+.primary-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.loader {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255,77,77,0.3);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.status {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--gray);
+    min-height: 1.2rem;
+}
+
+/* ---------- results ---------- */
+.results {
+    display: none;                          /* invisible until .visible is added */
+    flex-direction: column;
+    gap: 1.6rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.results.visible {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.score-card {
+    background: var(--dark);
+    border: 1px solid var(--accent);
+    border-radius: 14px;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+}
+.score-card h2 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+}
+.score {
+    font-size: 7rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: -2px;
+}
+.score-tagline {
+    font-size: 1rem;
+    color: var(--gray);
+    margin-top: 0.5rem;
+}
+
+.card {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+}
+.card h3 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.card ul {
+    list-style: none;
+    padding: 0;
+}
+.card li {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.92rem;
+}
+.card li:last-child { border-bottom: none; }
+
+.badge {
+    background: rgba(255,77,77,0.1);
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    padding: 0.35rem 1rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--accent);
+    display: inline-block;
+}
+
+#meanings-card li strong {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* ---------- footer ---------- */
+footer {
+    margin-top: 3rem;
+    color: var(--gray);
+    font-size: 0.8rem;
+    text-align: center;
+}
+footer .cursor { color: var(--accent); }
+
+.logo-svg {
+    display: block;
+    margin: 0 auto 0.3rem auto;
+    max-width: 100%;
+    height: auto;
+}

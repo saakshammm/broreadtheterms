@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>broreadtheterms — exposing corporate nonsense</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" type="image/svg+xml" href="/static/logo.svg">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="site-header">
+            <div class="logo">broreadtheterms<span class="cursor">▮</span></div>
+            <p class="tagline">Terms & Conditions for actual humans.</p>
+            <p class="subline">because nobody reads that shit.</p>
+        </header>
+
+        <main>
+            <section class="input-panel">
+                <label for="policy-text" class="input-label">Drop your soul‑selling contract here</label>
+                <textarea id="policy-text" placeholder="Paste any legal garbage — privacy policy, terms, the thing you clicked 'I agree' without reading…" rows="6" aria-label="Legal text input"></textarea>
+                <div class="file-row">
+                    <div class="drop-zone" id="drop-zone">
+                        <input type="file" id="file-input" accept=".txt,.pdf,.docx" hidden>
+                        <button id="file-upload-btn" class="text-btn">or drop a .txt / .pdf / .docx</button>
+                        <span id="file-name" class="file-name"></span>
+                    </div>
+                </div>
+                <button id="analyze-btn" class="primary-btn">
+                    <span class="btn-text">Roast This Policy</span>
+                    <span class="loader" hidden></span>
+                </button>
+                <div id="status" class="status" role="status"></div>
+            </section>
+
+            <section id="results" class="results" hidden>
+                <div class="score-card">
+                    <h2>COOKED SCORE</h2>
+                    <div class="score" id="cooked-score">0%</div>
+                    <p class="score-tagline" id="score-verdict"></p>
+                </div>
+
+                <article class="card" id="summary-card">
+                    <h3>Quick Summary</h3>
+                    <p id="summary"></p>
+                </article>
+                <article class="card" id="red-flags-card">
+                    <h3>🚨 Red Flags</h3>
+                    <ul id="red-flags-list"></ul>
+                </article>
+                <article class="card" id="honest-card">
+                    <h3>Honest Translation</h3>
+                    <p id="honest-translation"></p>
+                </article>
+                <article class="card" id="privacy-card">
+                    <h3>Privacy Risk</h3>
+                    <span class="badge" id="privacy-risk"></span>
+                </article>
+                <article class="card" id="trap-card">
+                    <h3>Subscription Trap</h3>
+                    <span class="badge" id="sub-trap"></span>
+                </article>
+                <article class="card" id="meanings-card">
+                    <h3>What They Really Mean</h3>
+                    <ul id="real-meanings"></ul>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>built to expose corporate manipulation.<span class="cursor">▮</span></p>
+        </footer>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
